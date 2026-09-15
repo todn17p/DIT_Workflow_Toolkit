@@ -52,9 +52,10 @@ const fx3Formats: Format[] = [
 ];
 
 const alexa35Formats: Format[] = [
-  { id: "alexa35-arriraw-46", label: "4.6K 3:2 Open Gate · ARRIRAW", codec: "ARRIRAW", resolution: "4608×3164", fps: 24, bitDepth: "12-bit", chroma: "RAW", bitrateMbps: 4567, rateMBps: 570.8 },
-  { id: "alexa35-pr4444xq", label: "4.6K 3:2 Open Gate · ProRes 4444 XQ", codec: "ProRes 4444 XQ", resolution: "4608×3164", fps: 24, bitDepth: "12-bit", chroma: "4:4:4:4", bitrateMbps: 11312, rateMBps: 1414 },
-  { id: "alexa35-pr422hq", label: "4.6K 3:2 Open Gate · ProRes 422 HQ", codec: "ProRes 422 HQ", resolution: "4608×3164", fps: 24, bitDepth: "10-bit", chroma: "4:2:2", bitrateMbps: 5064, rateMBps: 633 },
+  { id: "alexa35-arriraw-46", label: "4.6K 3:2 Open Gate · ARRIRAW", codec: "ARRIRAW", resolution: "4608×3164", fps: 24, bitDepth: "12-bit", chroma: "RAW", bitrateMbps: 4567, rateMBps: 570.9 },
+  { id: "alexa35-pr4444xq", label: "4.6K 3:2 Open Gate · ProRes 4444 XQ", codec: "ProRes 4444 XQ", resolution: "4608×3164", fps: 24, bitDepth: "12-bit", chroma: "4:4:4:4", bitrateMbps: 3140, rateMBps: 392.5 },
+  { id: "alexa35-pr4444", label: "4.6K 3:2 Open Gate · ProRes 4444", codec: "ProRes 4444", resolution: "4608×3164", fps: 24, bitDepth: "12-bit", chroma: "4:4:4:4", bitrateMbps: 2100, rateMBps: 262.5 },
+  { id: "alexa35-pr422hq", label: "4.6K 3:2 Open Gate · ProRes 422 HQ", codec: "ProRes 422 HQ", resolution: "4608×3164", fps: 24, bitDepth: "10-bit", chroma: "4:2:2", bitrateMbps: 1407, rateMBps: 175.8 },
 ];
 
 const ursaFormats: Format[] = [
@@ -94,7 +95,7 @@ export const scoringWeights = {
 export const sourceNotes = [
   "Sony FX6: XAVC-I DCI/QFHD 59.94p max 600Mbps, 50p 500Mbps, 24p 240Mbps.",
   "Sony FX3: XAVC S-I DCI 4K 59.94p 600Mbps and 24p 240Mbps.",
-  "ARRI ALEXA 35: 4.6K Open Gate at 24fps — ARRIRAW 2.055GB/h, ProRes 422 HQ 633GB/h, ProRes 4444 945GB/h, ProRes 4444 XQ 1,414GB/h.",
+  "ARRI ALEXA 35: official 4.6K Open Gate 24fps recording-time tables used to derive planning data rates.",
   "Blackmagic URSA Mini Pro 12K: 12K BRAW 5:1 578MB/s, 8:1 361MB/s; 8K BRAW 8:1 161MB/s at 24fps.",
   "Storage performance values use manufacturer maximums where available, with a conservative sustained-write planning estimate for scoring.",
   "Prices are initial planning estimates in KRW, not live checkout prices. Refresh before a real purchase or rental decision.",
