@@ -1,0 +1,43 @@
+name: Fix html2pdf build typing
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  fix-html2pdf:
+    if: ${{ !contains(github.event.head_commit.message, 'fix: html2pdf worker typing') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Patch PDF export API usage
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('app/page.tsx')
+          text = p.read_text()
+          old = 'await html2pdf(reportRef.current).set({'
+          new = 'await html2pdf().set({'
+          if old not in text:
+              raise SystemExit('Expected html2pdf call not found')
+          text = text.replace(old, new, 1)
+          old_tail = '    }).save();'
+          new_tail = '    }).from(reportRef.current).save();'
+          if old_tail not in text:
+              raise SystemExit('Expected html2pdf save chain not found')
+          text = text.replace(old_tail, new_tail, 1)
+          p.write_text(text)
+          PY
+      - name: Commit fix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/page.tsx
+          git diff --cached --quiet && exit 0
+          git commit -m "fix: html2pdf worker typing"
+          git push
